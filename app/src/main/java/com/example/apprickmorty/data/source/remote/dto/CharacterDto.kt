@@ -1,5 +1,7 @@
 package com.example.apprickmorty.data.source.remote.dto
 
+import com.example.apprickmorty.domain.model.Character
+
 data class CharacterDto(
     val created: String,
     val episode: List<String>,
@@ -14,3 +16,16 @@ data class CharacterDto(
     val type: String,
     val url: String
 )
+
+fun CharacterDto.toCharacter(): Character{
+    return  Character(
+        id=id,
+        name=name,
+        status=status,
+        species=species,
+        gender=gender,
+        origin = origin,
+        location=location,
+        image=image
+    )
+}
